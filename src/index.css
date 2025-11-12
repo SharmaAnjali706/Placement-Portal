@@ -1,0 +1,189 @@
+@config "../tailwind.config.js";
+@import "tailwindcss";
+
+
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 0.8s ease-in;
+  }
+  
+  .animate-scale-in {
+    animation: scaleIn 0.5s ease-out;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes scaleIn {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+}
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* White Background */
+    --background: 0 0% 100%;
+    --foreground: 219 91% 19%;
+
+    /* White cards with vibrant accents */
+    --card: 0 0% 100%;
+    --card-foreground: 219 91% 19%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 219 91% 19%;
+
+    /* Honolulu Blue - #0077B6 - Primary vibrant blue */
+    --primary: 199 100% 36%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Pacific Cyan - #00B4D8 - Secondary bright cyan */
+    --secondary: 192 100% 42%;
+    --secondary-foreground: 0 0% 100%;
+
+    /* Muted variants using light blue */
+    --muted: 193 72% 75%;
+    --muted-foreground: 219 91% 19%;
+
+    /* Accent using bright cyan */
+    --accent: 192 100% 42%;
+    --accent-foreground: 0 0% 100%;
+
+    /* Red for errors */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Green for success */
+    --success: 120 60% 50%;
+    --success-foreground: 0 0% 100%;
+
+    /* Borders using light cyan tones */
+    --border: 192 70% 88%;
+    --input: 193 72% 75%;
+    --ring: 199 100% 36%;
+
+    --radius: 0.5rem;
+
+    /* Sidebar colors - Light Cyan Background #CAF0F8 */
+    --sidebar-background: 192 70% 88%;
+    --sidebar-foreground: 219 91% 19%;
+    --sidebar-primary: 199 100% 36%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 193 72% 75%;
+    --sidebar-accent-foreground: 219 91% 19%;
+    --sidebar-border: 192 100% 42%;
+    --sidebar-ring: 199 100% 36%;
+
+    /* Custom design tokens - Vibrant blue gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(199 100% 36%), hsl(192 100% 42%));
+    --gradient-subtle: linear-gradient(180deg, hsl(192 70% 88%), hsl(193 72% 75%));
+    --gradient-vibrant: linear-gradient(135deg, hsl(219 91% 19%), hsl(199 100% 36%), hsl(192 100% 42%));
+    --shadow-soft: 0 1px 3px 0 hsl(219 91% 19% / 0.1), 0 1px 2px -1px hsl(219 91% 19% / 0.1);
+    --shadow-md: 0 4px 6px -1px hsl(199 100% 36% / 0.15), 0 2px 4px -2px hsl(199 100% 36% / 0.15);
+    --shadow-lg: 0 10px 15px -3px hsl(199 100% 36% / 0.2), 0 4px 6px -4px hsl(199 100% 36% / 0.2);
+    --shadow-glow: 0 0 20px hsl(192 100% 42% / 0.3);
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .dark {
+    /* Federal Blue - #03045E - Dark navy background */
+    --background: 219 91% 19%;
+    --foreground: 192 70% 88%;
+
+    /* Darker cards with Honolulu Blue tint */
+    --card: 219 91% 25%;
+    --card-foreground: 192 70% 88%;
+
+    --popover: 219 91% 25%;
+    --popover-foreground: 192 70% 88%;
+
+    /* Bright Honolulu Blue for primary in dark mode */
+    --primary: 199 100% 36%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Pacific Cyan for secondary */
+    --secondary: 192 100% 42%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 219 91% 30%;
+    --muted-foreground: 193 72% 75%;
+
+    /* Vibrant accent */
+    --accent: 192 100% 42%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 120 60% 50%;
+    --success-foreground: 0 0% 100%;
+
+    --border: 199 100% 36%;
+    --input: 219 91% 30%;
+    --ring: 192 100% 42%;
+    
+    --sidebar-background: 219 91% 19%;
+    --sidebar-foreground: 192 70% 88%;
+    --sidebar-primary: 199 100% 36%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 219 91% 30%;
+    --sidebar-accent-foreground: 193 72% 75%;
+    --sidebar-border: 199 100% 36%;
+    --sidebar-ring: 192 100% 42%;
+
+    --shadow-soft: 0 1px 3px 0 hsl(0 0% 0% / 0.5);
+    --shadow-md: 0 4px 6px -1px hsl(192 100% 42% / 0.3);
+    --shadow-lg: 0 10px 15px -3px hsl(192 100% 42% / 0.4);
+    --shadow-glow: 0 0 30px hsl(192 100% 42% / 0.5);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold tracking-tight;
+  }
+
+  input, textarea {
+    @apply transition-all duration-200;
+  }
+
+  /* Toast styling */
+  .toast-success {
+    background: hsl(var(--success)) !important;
+    color: hsl(var(--success-foreground)) !important;
+    border-color: hsl(var(--success)) !important;
+  }
+
+  .toast-error {
+    background: hsl(var(--destructive)) !important;
+    color: hsl(var(--destructive-foreground)) !important;
+    border-color: hsl(var(--destructive)) !important;
+  }
+}
