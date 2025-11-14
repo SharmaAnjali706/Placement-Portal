@@ -18,7 +18,7 @@ const AdminNavbar = () => {
           <div className="w-9 h-9 bg-primary rounded-lg flex items-center justify-center">
             <FaGraduationCap className="w-5 h-5 text-primary-foreground" />
           </div>
-          <h1 className="text-lg font-semibold">Placenix - Admin</h1>
+          <h1 className="text-lg font-semibold">PlaceNix - Admin</h1>
         </div>
 
         <div className="flex-1 flex justify-center">

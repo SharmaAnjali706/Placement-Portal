@@ -3,6 +3,7 @@ import { useNavigate, Link } from "react-router-dom";
 import { FaGraduationCap } from "react-icons/fa";
 import { toast } from "sonner";
 import { cn } from "../utils";
+import campusImage from "../assets/campus-illustration.png";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -74,32 +75,16 @@ const Register = () => {
   };
 
   return (
-    <div className="min-h-screen flex">
-      {/* Left Side - Image */}
-      <div className="hidden lg:flex lg:w-1/2 bg-gradient-to-br from-primary via-secondary to-accent relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/90 via-secondary/80 to-accent/90" />
-        <div className="relative z-10 flex flex-col items-center justify-center p-12 text-white">
-          <div className="w-24 h-24 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center mb-6 animate-fade-in">
-            <FaGraduationCap className="w-12 h-12" />
+    <div className="min-h-screen flex items-center justify-center p-4 bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500">
+      <div className="w-full max-w-md rounded-lg border bg-card text-card-foreground shadow-2xl animate-scale-in">
+        <div className="flex flex-col space-y-3 p-6 text-center">
+          <div className="mx-auto w-12 h-12 bg-primary rounded-full flex items-center justify-center">
+            <FaGraduationCap className="w-6 h-6 text-primary-foreground" />
           </div>
-          <h1 className="text-4xl font-bold mb-4 text-center animate-fade-in">Join Placenix</h1>
-          <p className="text-xl text-center text-white/90 max-w-md animate-fade-in">
-            Create your account and unlock amazing career opportunities
-          </p>
+          <h3 className="text-2xl font-semibold leading-none tracking-tight">Create Account</h3>
+          <p className="text-sm text-muted-foreground">Register for PlaceNix</p>
         </div>
-      </div>
-
-      {/* Right Side - Register Form */}
-      <div className="w-full lg:w-1/2 flex items-center justify-center p-4 bg-background">
-        <div className="w-full max-w-md rounded-lg border bg-card text-card-foreground shadow-lg animate-scale-in">
-          <div className="flex flex-col space-y-3 p-6 text-center">
-            <div className="mx-auto w-12 h-12 bg-primary rounded-full flex items-center justify-center lg:hidden">
-              <FaGraduationCap className="w-6 h-6 text-primary-foreground" />
-            </div>
-            <h3 className="text-2xl font-semibold leading-none tracking-tight">Create Account</h3>
-            <p className="text-sm text-muted-foreground">Register for the Placenix</p>
-          </div>
-          <div className="p-6 pt-0">
+        <div className="p-6 pt-0">
             <form onSubmit={handleRegister} className="space-y-4">
               <div className="space-y-2">
                 <label htmlFor="name" className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
@@ -163,7 +148,7 @@ const Register = () => {
 
               <button
                 type="submit"
-                className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 w-full"
+                className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-indigo-600 hover:bg-indigo-700 text-white hover:shadow-lg transform hover:scale-[1.02] h-10 px-4 py-2 w-full"
               >
                 Register
               </button>
@@ -174,8 +159,7 @@ const Register = () => {
                   Login here
                 </Link>
               </div>
-            </form>
-          </div>
+          </form>
         </div>
       </div>
     </div>

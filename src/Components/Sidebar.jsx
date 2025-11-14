@@ -48,7 +48,7 @@ const Sidebar = () => {
             {isCollapsed ? <FaBars className="w-4 h-4" /> : <FaTimes className="w-4 h-4" />}
           </button>
 
-          <nav className="flex-1 space-y-0.5 flex flex-col">
+          <nav className="flex-1 space-y-0 flex flex-col">
             {/* Top nav items */}
             {navItems.map((item) => (
               <NavLink
@@ -93,16 +93,16 @@ const Sidebar = () => {
               </button>
 
               {isPortfolioOpen && !isCollapsed && (
-                <div className="ml-8 space-y-0.5">
+                <div className="ml-8 space-y-0">
                   {portfolioItems.map((item) => (
                     <NavLink
                       key={item.path}
                       to={item.path}
                       className={({ isActive }) =>
                         cn(
-                          "block px-3 py-2 rounded-lg transition-colors text-sm",
+                          "block px-3 py-1.5 rounded-lg transition-colors text-sm font-medium",
                           "hover:bg-accent hover:text-accent-foreground",
-                          isActive && "bg-primary/20 text-primary font-medium"
+                          isActive && "bg-primary/20 text-primary"
                         )
                       }
                     >

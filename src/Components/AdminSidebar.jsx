@@ -41,7 +41,7 @@ const AdminSidebar = () => {
             {isCollapsed ? <FaBars className="w-4 h-4" /> : <FaTimes className="w-4 h-4" />}
           </button>
 
-          <nav className="flex-1 space-y-0.5 flex flex-col">
+          <nav className="flex-1 space-y-0 flex flex-col">
             {/* Top nav items */}
             {navItems.map((item) => (
               <NavLink

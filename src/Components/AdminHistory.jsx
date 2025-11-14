@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { FaBuilding, FaClock, FaCheckCircle, FaHourglassHalf } from "react-icons/fa";
 
 const AdminHistory = () => {
+  const navigate = useNavigate();
   const [companies, setCompanies] = useState([]);
 
   useEffect(() => {
-    // Load companies from localStorage
     const storedCompanies = JSON.parse(localStorage.getItem("companies") || "[]");
     setCompanies(storedCompanies);
   }, []);
@@ -53,6 +54,7 @@ const AdminHistory = () => {
                 <th className="px-6 py-4 text-left text-sm font-semibold text-foreground">Job Role</th>
                 <th className="px-6 py-4 text-left text-sm font-semibold text-foreground">Students Registered</th>
                 <th className="px-6 py-4 text-left text-sm font-semibold text-foreground">Status</th>
+                <th className="px-6 py-4 text-left text-sm font-semibold text-foreground">Actions</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-border">
@@ -84,11 +86,19 @@ const AdminHistory = () => {
                         {company.status || "Upcoming"}
                       </span>
                     </td>
+                    <td className="px-6 py-4">
+                      <button
+                        onClick={() => navigate(`/admin/company/${company.id}`)}
+                        className="px-4 py-2 rounded-lg bg-cyan-600 hover:bg-cyan-700 text-white text-sm font-semibold transition-all"
+                      >
+                        Show
+                      </button>
+                    </td>
                   </tr>
                 ))
               ) : (
                 <tr>
-                  <td colSpan="5" className="px-6 py-12 text-center">
+                  <td colSpan="6" className="px-6 py-12 text-center">
                     <div className="flex flex-col items-center gap-3">
                       <div className="w-16 h-16 rounded-full bg-muted flex items-center justify-center">
                         <FaBuilding className="w-8 h-8 text-muted-foreground" />

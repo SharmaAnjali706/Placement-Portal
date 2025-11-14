@@ -1,69 +1,26 @@
+import { useState, useEffect } from "react";
 import { FaHistory } from "react-icons/fa";
 
 const History = () => {
-  const activities = [
-    {
-      id: 1,
-      activity: "Applied for Microsoft Campus Drive",
-      company: "Microsoft",
-      date: "May 14, 2024",
-      status: "Pending",
-      type: "Application"
-    },
-    {
-      id: 2,
-      activity: "Viewed Google Internship Details",
-      company: "Google",
-      date: "May 12, 2024",
-      status: "Viewed",
-      type: "View"
-    },
-    {
-      id: 3,
-      activity: "Applied for Amazon SDE Role",
-      company: "Amazon",
-      date: "May 8, 2024",
-      status: "Shortlisted",
-      type: "Application"
-    },
-    {
-      id: 4,
-      activity: "Attended Career Guidance Session",
-      company: "Placement Cell",
-      date: "May 1, 2024",
-      status: "Completed",
-      type: "Workshop"
-    },
-    {
-      id: 5,
-      activity: "Updated Resume",
-      company: "Self",
-      date: "April 28, 2024",
-      status: "Completed",
-      type: "Profile Update"
-    },
-    {
-      id: 6,
-      activity: "Applied for TCS Drive",
-      company: "TCS",
-      date: "April 25, 2024",
-      status: "Rejected",
-      type: "Application"
-    }
-  ];
+  const [applications, setApplications] = useState([]);
 
-  const getStatusVariant = (status) => {
+  useEffect(() => {
+    const storedApplications = JSON.parse(localStorage.getItem("applications") || "[]");
+    setApplications(storedApplications);
+  }, []);
+
+  const getStatusColor = (status) => {
     switch (status) {
       case "Pending":
-        return "bg-secondary text-secondary-foreground hover:bg-secondary/80";
+        return "bg-amber-500 text-white";
       case "Shortlisted":
-        return "bg-primary text-primary-foreground hover:bg-primary/80";
+        return "bg-emerald-600 text-white";
       case "Completed":
-        return "text-foreground border";
+        return "bg-emerald-600 text-white";
       case "Rejected":
-        return "bg-destructive text-destructive-foreground hover:bg-destructive/80";
+        return "bg-rose-600 text-white";
       default:
-        return "bg-secondary text-secondary-foreground hover:bg-secondary/80";
+        return "bg-slate-500 text-white";
     }
   };
 
@@ -85,38 +42,36 @@ const History = () => {
           <p className="text-sm text-muted-foreground">Track your applications, views, and participation</p>
         </div>
         <div className="p-6 pt-0">
-          <div className="overflow-x-auto">
-            <table className="w-full">
-              <thead>
-                <tr className="border-b transition-colors hover:bg-muted/50">
-                  <th className="h-12 px-4 text-left align-middle font-medium text-muted-foreground">Activity</th>
-                  <th className="h-12 px-4 text-left align-middle font-medium text-muted-foreground">Company</th>
-                  <th className="h-12 px-4 text-left align-middle font-medium text-muted-foreground">Type</th>
-                  <th className="h-12 px-4 text-left align-middle font-medium text-muted-foreground">Date</th>
-                  <th className="h-12 px-4 text-left align-middle font-medium text-muted-foreground">Status</th>
-                </tr>
-              </thead>
-              <tbody>
-                {activities.map((activity) => (
-                  <tr key={activity.id} className="border-b transition-colors hover:bg-muted/50">
-                    <td className="p-4 align-middle font-medium">{activity.activity}</td>
-                    <td className="p-4 align-middle">{activity.company}</td>
-                    <td className="p-4 align-middle">
-                      <div className="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 text-foreground">
-                        {activity.type}
-                      </div>
-                    </td>
-                    <td className="p-4 align-middle text-muted-foreground">{activity.date}</td>
-                    <td className="p-4 align-middle">
-                      <div className={`inline-flex items-center rounded-full border-transparent px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 ${getStatusVariant(activity.status)}`}>
-                        {activity.status}
-                      </div>
-                    </td>
+          {applications.length > 0 ? (
+            <div className="overflow-x-auto">
+              <table className="w-full">
+                <thead>
+                  <tr className="border-b transition-colors hover:bg-muted/50">
+                    <th className="h-12 px-4 text-left align-middle font-medium text-muted-foreground">Company</th>
+                    <th className="h-12 px-4 text-left align-middle font-medium text-muted-foreground">Applied Date</th>
+                    <th className="h-12 px-4 text-left align-middle font-medium text-muted-foreground">Status</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+                </thead>
+                <tbody>
+                  {applications.map((application) => (
+                    <tr key={application.id} className="border-b transition-colors hover:bg-muted/50">
+                      <td className="p-4 align-middle font-medium">{application.companyName}</td>
+                      <td className="p-4 align-middle">{new Date(application.appliedAt).toLocaleDateString()}</td>
+                      <td className="p-4 align-middle">
+                        <div className={`inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold ${getStatusColor(application.status)}`}>
+                          {application.status}
+                        </div>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          ) : (
+            <div className="text-center py-12 text-muted-foreground">
+              <p>No applications yet</p>
+            </div>
+          )}
         </div>
       </div>
     </div>

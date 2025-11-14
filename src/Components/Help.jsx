@@ -50,7 +50,7 @@ const Help = () => {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        <div className="bg-gradient-to-br from-blue-500 to-blue-600 border border-blue-400/20 rounded-lg p-6 shadow-lg text-center hover:shadow-xl transition-shadow">
+        <div className="bg-gradient-to-br from-sky-500 to-sky-600 border border-sky-400/20 rounded-lg p-6 shadow-lg text-center hover:shadow-xl transition-shadow">
           <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-3">
             <FaEnvelope className="w-6 h-6 text-white" />
           </div>
@@ -58,7 +58,7 @@ const Help = () => {
           <p className="text-sm text-white/90">placement@amity.edu</p>
         </div>
 
-        <div className="bg-gradient-to-br from-green-500 to-green-600 border border-green-400/20 rounded-lg p-6 shadow-lg text-center hover:shadow-xl transition-shadow">
+        <div className="bg-gradient-to-br from-emerald-500 to-emerald-600 border border-emerald-400/20 rounded-lg p-6 shadow-lg text-center hover:shadow-xl transition-shadow">
           <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-3">
             <FaPhone className="w-6 h-6 text-white" />
           </div>
@@ -66,7 +66,7 @@ const Help = () => {
           <p className="text-sm text-white/90">+91 120 4392000</p>
         </div>
 
-        <div className="bg-gradient-to-br from-purple-500 to-purple-600 border border-purple-400/20 rounded-lg p-6 shadow-lg text-center hover:shadow-xl transition-shadow">
+        <div className="bg-gradient-to-br from-violet-500 to-violet-600 border border-violet-400/20 rounded-lg p-6 shadow-lg text-center hover:shadow-xl transition-shadow">
           <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-3">
             <FaQuestionCircle className="w-6 h-6 text-white" />
           </div>
@@ -131,7 +131,7 @@ const Help = () => {
           <div className="flex justify-end">
             <button
               type="submit"
-              className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-gradient-to-r from-blue-500 to-blue-600 text-white hover:from-blue-600 hover:to-blue-700 hover:shadow-lg h-10 px-6 py-2"
+              className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-violet-600 hover:bg-violet-700 text-white hover:shadow-lg transform hover:scale-[1.02] h-10 px-6 py-2"
             >
               Submit Query
             </button>

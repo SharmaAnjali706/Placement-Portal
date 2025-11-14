@@ -18,6 +18,9 @@ import AdminHistory from "./Components/AdminHistory";
 import RegisteredStudents from "./Components/RegisteredStudents";
 import About from "./Components/About";
 import Help from "./Components/Help";
+import CompanyDetails from "./Components/CompanyDetails";
+import ApplicationForm from "./Components/ApplicationForm";
+import CompanyApplicants from "./Components/CompanyApplicants";
 
 const queryClient = new QueryClient();
 
@@ -46,6 +49,7 @@ const App = () => (
           <Route path="register-company" element={<RegisterCompany />} />
           <Route path="history" element={<AdminHistory />} />
           <Route path="students" element={<RegisteredStudents />} />
+          <Route path="company/:id" element={<CompanyApplicants />} />
           <Route path="about" element={<About />} />
         </Route>
         <Route path="/home" element={<Home />}>
@@ -54,6 +58,8 @@ const App = () => (
           <Route path="portfolio/cover-letter" element={<CoverLetter />} />
           <Route path="portfolio/resume" element={<CreateResume />} />
           <Route path="updates" element={<Updates />} />
+          <Route path="company/:id" element={<CompanyDetails />} />
+          <Route path="apply/:id" element={<ApplicationForm />} />
           <Route path="history" element={<History />} />
           <Route path="about" element={<About />} />
           <Route path="help" element={<Help />} />
