@@ -62,9 +62,6 @@ const AdminSidebar = () => {
               </NavLink>
             ))}
 
-            {/* Spacer to push bottom items down */}
-            <div className="flex-1"></div>
-
             {/* Bottom nav items */}
             {bottomNavItems.map((item) => (
               <NavLink

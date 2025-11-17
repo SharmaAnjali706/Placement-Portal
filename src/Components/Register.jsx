@@ -75,16 +75,28 @@ const Register = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-4 bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500">
-      <div className="w-full max-w-md rounded-lg border bg-card text-card-foreground shadow-2xl animate-scale-in">
-        <div className="flex flex-col space-y-3 p-6 text-center">
-          <div className="mx-auto w-12 h-12 bg-primary rounded-full flex items-center justify-center">
-            <FaGraduationCap className="w-6 h-6 text-primary-foreground" />
-          </div>
-          <h3 className="text-2xl font-semibold leading-none tracking-tight">Create Account</h3>
-          <p className="text-sm text-muted-foreground">Register for PlaceNix</p>
+    <div className="min-h-screen flex">
+      {/* Left Section - Gradient */}
+      <div className="hidden lg:flex lg:w-1/2 bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 p-12 items-center justify-center">
+        <div className="text-white max-w-md animate-fade-in">
+          <FaGraduationCap className="w-20 h-20 mb-6" />
+          <h1 className="text-4xl font-bold mb-4">Join PlaceNix</h1>
+          <p className="text-lg opacity-90">Start your journey towards achieving your career goals with our comprehensive placement management system</p>
         </div>
-        <div className="p-6 pt-0">
+      </div>
+
+      {/* Right Section - Form */}
+      <div className="w-full lg:w-1/2 flex items-center justify-center p-4 bg-background">
+        <div className="w-full max-w-md space-y-6 animate-scale-in">
+          <div className="text-center space-y-2">
+            <div className="mx-auto w-12 h-12 bg-primary rounded-full flex items-center justify-center lg:hidden mb-4">
+              <FaGraduationCap className="w-6 h-6 text-primary-foreground" />
+            </div>
+            <h2 className="text-3xl font-bold tracking-tight">Create Account</h2>
+            <p className="text-muted-foreground">Sign up to get started with PlaceNix</p>
+          </div>
+
+          <div className="rounded-lg border bg-card p-6 shadow-lg">
             <form onSubmit={handleRegister} className="space-y-4">
               <div className="space-y-2">
                 <label htmlFor="name" className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
@@ -159,7 +171,8 @@ const Register = () => {
                   Login here
                 </Link>
               </div>
-          </form>
+            </form>
+          </div>
         </div>
       </div>
     </div>
